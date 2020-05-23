@@ -1,0 +1,26 @@
+Package: stepseg
+Title: Stepwise Segmented Regression Analysis
+Version: 0.9.0
+Authors@R: 
+    person(given = "Brian",
+           family = "Britt",
+           role = c("aut", "cre"),
+           email = "bcbritt@ua.edu",
+           comment = c(ORCID = "0000-0002-1521-3258"))
+Description: This package facilitates stepwise segmented regression
+    analysis, an approach for breakpoint detection and evaluation that is
+    especially useful for data with high error variance (e.g.,
+    longitudinal behavioral data). If you use this package, please cite
+    the original publication: Britt, B. C. (2015). Stepwise segmented
+    regression analysis: An iterative statistical algorithm to detect and
+    quantify evolutionary and revolutionary transformations in
+    longitudinal data. In S. A. Matei, M. G. Russell, & E. Bertino (Eds.),
+    Transparency in social media: Tools, methods, and algorithms for
+    mediating online interactions (pp. 125-144). Heidelberg, Germany:
+    Springer.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Imports: 
+    stats
