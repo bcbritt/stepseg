@@ -45,7 +45,7 @@ model during each backward selection iteration, which must be greater than
 or equal to the \code{add} argument in order to avoid infinite loops
 (default = \code{.20}, as recommended by Britt, 2015)}
 
-\item{add_mode}{A character atomic vector (either \code{"p"} or \code{"mse"}
+\item{add_mode}{A character atomic vector (either \code{"p"} or \code{"mse"})
 indicating what criterion should be used to select the best candidate
 block during each forward selection iteration (default = \code{"mse"})}
 
@@ -79,81 +79,81 @@ model and results should be outputted as part of the progress report every
 }
 \value{
 An object with the \code{stepseg_output} class that contains the
-  following list elements:
+following list elements:
 
-  \code{output}: The summary of the final regression model that resulted
-    from the stepwise segmented regression analysis, constructed using
-    \code{\link[stats]{glm}} and passed through \code{\link[stats]{drop1}})
-    to obtain results using Type II sums of squares
+\code{output}: The summary of the final regression model that resulted
+from the stepwise segmented regression analysis, constructed using
+\code{\link[stats]{glm}} and passed through \code{\link[stats]{drop1}})
+to obtain results using Type II sums of squares
 
-  \code{raw_glm}: The raw output for the final regression model using
-    \code{\link[stats]{glm}}, without passing it through
-    \code{\link[stats]{drop1}}, thereby using Type I sums of squares rather
-    than Type II
+\code{raw_glm}: The raw output for the final regression model using
+\code{\link[stats]{glm}}, without passing it through
+\code{\link[stats]{drop1}}, thereby using Type I sums of squares rather
+than Type II
 
-  \code{cleaned_output}: The summary of the final regression model that
-    resulted from the stepwise segmented regression analysis, removing any
-    coefficients that had \code{NA} \emph{p}-values due to singularities or
-    other issues, constructed using \code{\link[stats]{glm}} and passed
-    through \code{\link[stats]{drop1}}) to obtain results using Type II sums
-    of squares
+\code{cleaned_output}: The summary of the final regression model that
+resulted from the stepwise segmented regression analysis, removing any
+coefficients that had \code{NA} \emph{p}-values due to singularities or
+other issues, constructed using \code{\link[stats]{glm}} and passed
+through \code{\link[stats]{drop1}}) to obtain results using Type II sums
+of squares
 
-  \code{cleaned_raw_glm}: The raw output for the final regression model
-    using \code{\link[stats]{glm}}, removing any coefficients that had
-    \code{NA} \emph{p}-values due to singularities or other issues, but
-    without passing it through \code{\link[stats]{drop1}}, thereby using
-    Type I sums of squares rather than Type II
+\code{cleaned_raw_glm}: The raw output for the final regression model
+using \code{\link[stats]{glm}}, removing any coefficients that had
+\code{NA} \emph{p}-values due to singularities or other issues, but
+without passing it through \code{\link[stats]{drop1}}, thereby using
+Type I sums of squares rather than Type II
 
-  \code{start_formula}: The formula for the regression model prior to the
-    first iteration of the stepwise segmented regression analysis
+\code{start_formula}: The formula for the regression model prior to the
+first iteration of the stepwise segmented regression analysis
 
-  \code{final_formula}: The final formula for the regression model that
-    resulted from the stepwise segmented regression analysis
+\code{final_formula}: The final formula for the regression model that
+resulted from the stepwise segmented regression analysis
 
-  \code{cleaned_formula}: The final formula for the regression model that
-    resulted from the stepwise segmented regression analysis, removing any
-    coefficients that had \code{NA} \emph{p}-values due to singularities or
-    other issues
+\code{cleaned_formula}: The final formula for the regression model that
+resulted from the stepwise segmented regression analysis, removing any
+coefficients that had \code{NA} \emph{p}-values due to singularities or
+other issues
 
-  \code{start_factors}: The coefficients used in the regression model prior
-    to the first iteration of the stepwise segmented regression analysis
+\code{start_factors}: The coefficients used in the regression model prior
+to the first iteration of the stepwise segmented regression analysis
 
-  \code{final_factors}: The coefficients used in the regression model that
-    resulted from the stepwise segmented regression analysis
+\code{final_factors}: The coefficients used in the regression model that
+resulted from the stepwise segmented regression analysis
 
-  \code{cleaned_factors}: The coefficients used in the regression model that
-    resulted from the stepwise segmented regression analysis, removing any
-    coefficients that had \code{NA} \emph{p}-values due to singularities or
-    other issues
+\code{cleaned_factors}: The coefficients used in the regression model that
+resulted from the stepwise segmented regression analysis, removing any
+coefficients that had \code{NA} \emph{p}-values due to singularities or
+other issues
 
-  \code{add_iterations}: The number of forward selection iterations elapsed
+\code{add_iterations}: The number of forward selection iterations elapsed
 
-  \code{remove_iterations}: The number of backward selection iterations
-    elapsed
+\code{remove_iterations}: The number of backward selection iterations
+elapsed
 
-  \code{model_iterations}: A list showing how the regression model appeared
-    at the end of each forward selection and backward selection iteration
+\code{model_iterations}: A list showing how the regression model appeared
+at the end of each forward selection and backward selection iteration
 
-  \code{dv}: The value set for the \code{dv} argument
+\code{dv}: The value set for the \code{dv} argument
 
-  \code{ivs}: The value set for the \code{ivs} argument
+\code{ivs}: The value set for the \code{ivs} argument
 
-  \code{add}: The value set for the \code{add} argument
+\code{add}: The value set for the \code{add} argument
 
-  \code{remove}: The value set for the \code{remove} argument
+\code{remove}: The value set for the \code{remove} argument
 
-  \code{add_mode}: The value set for the \code{add_mode} argument
+\code{add_mode}: The value set for the \code{add_mode} argument
 
-  \code{family}: The value set for the \code{family} argument
+\code{family}: The value set for the \code{family} argument
 
-  \code{order}: The value set for the \code{order} argument
+\code{order}: The value set for the \code{order} argument
 
-  \code{allow_interactions}: The value set for the \code{allow_interactions}
-    argument
+\code{allow_interactions}: The value set for the \code{allow_interactions}
+argument
 
-  \code{update}: The value set for the \code{update} argument
+\code{update}: The value set for the \code{update} argument
 
-  \code{verbose}: The value set for the \code{verbose} argument
+\code{verbose}: The value set for the \code{verbose} argument
 }
 \description{
 This function performs stepwise segmented regression analysis,
@@ -181,25 +181,25 @@ independent variables, has three columns signifying three variables. If
 default values in \code{stepseg}, then the block corresponding to a
 potential breakpoint at \code{ivs[, 1] = 10} would include two coefficients:
 \itemize{
-  \item{\code{I(ivs[, 1] = 10)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 1]^1)}}
+\item{\code{I(ivs[, 1] = 10)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 1]^1)}}
 }
 Setting \code{order = 2} would retain both of the aforementioned
 coefficients and also add
 \itemize{
- \item{\code{I(ivs[, 1] = 10):(ivs[, 1]^2)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 1]^2)}}
 }
 to the block. Maintaining \code{order = 2} and setting
 \code{allow_interactions = TRUE} would result in the block containing a
 total of seven coefficients:
 \itemize{
-  \item{\code{ivs[, 1] = 10}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 1]^1)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 1]^2)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 2]^1)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 2]^2)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 3]^1)}}
-  \item{\code{I(ivs[, 1] = 10):(ivs[, 3]^2)}}
+\item{\code{ivs[, 1] = 10}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 1]^1)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 1]^2)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 2]^1)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 2]^2)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 3]^1)}}
+\item{\code{I(ivs[, 1] = 10):(ivs[, 3]^2)}}
 }
 Note that if \code{order = 0}, then each block will only include the
 indicator function itself (in this example, \code{I(ivs[, 1] = 10)})
@@ -214,7 +214,7 @@ as that \emph{p}-value is less than the threshold specified by the
 \code{add} argument, all coefficients included in the block are added to the
 model. If \code{add_mode = "mse"}, then the candidate block whose
 coefficients would jointly reduce the model mean squared error by the
-greatest amount is treated as the `best` block, and all of its coefficients
+greatest amount is treated as the \code{best} block, and all of its coefficients
 are added to the model if the resulting \emph{p}-value for at least one of
 those coefficients would be less than \code{add}.
 
@@ -287,12 +287,12 @@ unpredictable results. Refer to Britt (2015) for more information.
 }
 \section{References}{
 
-  Britt, B. C. (2015). Stepwise segmented regression analysis: An iterative
-  statistical algorithm to detect and quantify evolutionary and
-  revolutionary transformations in longitudinal data. In S. A. Matei, M. G.
-  Russell, & E. Bertino (Eds.), \emph{Transparency in social media: Tools,
-  methods, and algorithms for mediating online interactions} (pp. 125-144).
-  Heidelberg, Germany: Springer.
+Britt, B. C. (2015). Stepwise segmented regression analysis: An iterative
+statistical algorithm to detect and quantify evolutionary and
+revolutionary transformations in longitudinal data. In S. A. Matei, M. G.
+Russell, & E. Bertino (Eds.), \emph{Transparency in social media: Tools,
+methods, and algorithms for mediating online interactions} (pp. 125-144).
+Heidelberg, Germany: Springer.
 }
 
 \examples{
